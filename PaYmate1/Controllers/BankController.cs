@@ -51,22 +51,22 @@ namespace PaYmate1.Controllers
                 
             }
             var customerDetail = (CustomerViewModel)Session["CustomerDetail"];
-            var transactionStatus = _bankService.FundTransfer(customerDetail, bankViewModel);
+           // var transactionStatus = _bankService.FundTransfer(customerDetail, bankViewModel);
             
-            if(transactionStatus==1)
-            {
-                //  this.Flash(Toastr.SUCCESS,"Success","Fund Transfer Successful");
-                return Redirect(customerDetail.BankType);
-            }
-           else if (transactionStatus == 2)
-            {
-                this.Flash(Toastr.ERROR, "Failed", "Invalid Account Number");
-            }
-            else
-            {
-                this.Flash(Toastr.ERROR, "Failed", "Insufficient Balance");
-            }
-            return View();
+           // if(transactionStatus==1)
+           // {
+           //     //  this.Flash(Toastr.SUCCESS,"Success","Fund Transfer Successful");
+               return Redirect(customerDetail.BankType);
+           // }
+           //else if (transactionStatus == 2)
+           // {
+           //     this.Flash(Toastr.ERROR, "Failed", "Invalid Account Number");
+           // }
+           // else
+           // {
+           //     this.Flash(Toastr.ERROR, "Failed", "Insufficient Balance");
+           // }
+           // return View();
         }
     }
 }
