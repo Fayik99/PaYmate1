@@ -1,4 +1,7 @@
-﻿.transaction-log table{
+﻿.transaction-log{
+    margin: 0 30px;
+}
+.transaction-log table{
     width:100%;
     text-align: center;
     margin: 20px 0;
