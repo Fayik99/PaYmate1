@@ -5,6 +5,7 @@ using RedWillow.MvcToastrFlash;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -34,7 +35,7 @@ namespace PaYmate1.Controllers
             return View(result);
         }
         [HttpPost]
-        public ActionResult ReserveRoom(DateTime? reservationDate, int? roomNumber)
+        public async Task<ActionResult> ReserveRoom(DateTime? reservationDate, int? roomNumber)
         {
             if (reservationDate == null || roomNumber == null || reservationDate?.Date <= DateTime.Now.Date)
             {
@@ -42,10 +43,13 @@ namespace PaYmate1.Controllers
                 return RedirectToAction("GetRoomDetails");
             }
 
-
-
-
-            return View("GetRoomDetails");
+            var customerId = (CustomerViewModel)Session["CustomerDetail"];
+            var result = await _roomService.ReserveRoom(reservationDate, roomNumber, customerId.CustomerId);
+            if (result)
+                this.Flash(Toastr.SUCCESS, "Success", "Room has been booked successfully");
+            else
+                this.Flash(Toastr.ERROR, "Failes", "This room has been booked on the selected date");
+            return RedirectToAction("GetRoomDetails");
         }
     }
 }

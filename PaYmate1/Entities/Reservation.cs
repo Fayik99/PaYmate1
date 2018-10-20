@@ -13,8 +13,8 @@ namespace PaYmate1.Entities
         [Key]
         public int ReservationId { get; set; }
         public int CustomerId { get; set; }
-        public int RoomNumber { get; set; }
-        public DateTime Date { get; set; }
+        public int? RoomNumber { get; set; }
+        public DateTime? Date { get; set; }
         public int Status { get; set; }
     }
 }

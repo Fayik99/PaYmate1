@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -151,6 +152,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Common\RecordStatusEnum.cs" />
+    <Compile Include="Common\ReservationStatus.cs" />
     <Compile Include="Common\UserRoleEnum.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BankController.cs" />
@@ -188,6 +190,10 @@
     <Compile Include="Migrations\201810181506269_abc.cs" />
     <Compile Include="Migrations\201810181506269_abc.Designer.cs">
       <DependentUpon>201810181506269_abc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810201243250_room number and changed to nullable.cs" />
+    <Compile Include="Migrations\201810201243250_room number and changed to nullable.Designer.cs">
+      <DependentUpon>201810201243250_room number and changed to nullable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -307,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810181506269_abc.resx">
       <DependentUpon>201810181506269_abc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810201243250_room number and changed to nullable.resx">
+      <DependentUpon>201810201243250_room number and changed to nullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
