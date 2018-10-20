@@ -37,7 +37,7 @@ namespace PaYmate1.Services
                     TransactionType = "FundTransfer".ToString(),
                     TransactionAmount = x.Amount,
                     Date = x.Date
-                }).ToList();
+                }).OrderByDescending(o=>o.Date).ToList();
             return logList1;
         }
 

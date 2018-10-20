@@ -9,8 +9,8 @@ using System.Web.Mvc;
 namespace PaYmate1.Controllers
 {
 
-    
-    
+
+
 
     public class HomeController : Controller
     {
@@ -30,29 +30,29 @@ namespace PaYmate1.Controllers
 
         public ActionResult Index()
         {
-            var customerId= (CustomerViewModel)Session["CustomerDetail"];
-           ViewBag.BankUrl= _customerService.GetCustomerDetail(customerId.CustomerId).BankType;
+            var customerId = (CustomerViewModel)Session["CustomerDetail"];
+            ViewBag.BankUrl = _customerService.GetCustomerDetail(customerId.CustomerId).BankType;
 
             return View();
         }
 
         public ActionResult About()
         {
-           
+
 
             return View();
         }
 
         public ActionResult Contact()
         {
-           
+
 
             return View();
         }
         public ActionResult TransactionLog()
         {
             var customerDetail = (CustomerViewModel)Session["CustomerDetail"];
-           var result= _homeService.GetTransactionLog(customerDetail);
+            var result = _homeService.GetTransactionLog(customerDetail);
 
             return View(result);
         }
@@ -61,15 +61,17 @@ namespace PaYmate1.Controllers
         [HttpGet]
         public ActionResult FundTransferReport()
         {
-           
+
             return View();
         }
 
         [HttpPost]
-        public ActionResult FundTransferReport(DateTime FromDate, DateTime ToDate)
+        public ActionResult FundTransferReport(DateTime FromDate , DateTime ToDate)
         {
+
+
             var customerDetail = (CustomerViewModel)Session["CustomerDetail"];
-            var result = _homeService.GetFundTransferReport(customerDetail, FromDate,ToDate);
+            var result = _homeService.GetFundTransferReport(customerDetail, FromDate, ToDate);
 
             return View(result);
         }

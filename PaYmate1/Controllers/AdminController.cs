@@ -1,5 +1,6 @@
 ﻿using PaYmate1.Models;
 using PaYmate1.Services;
+using RedWillow.MvcToastrFlash;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,13 @@ namespace PaYmate1.Controllers
         {
           var list= _adminService.GetAllUsers();
             return View(list);
+        }
+
+        public ActionResult UnBlockUser(int id)
+        {
+            _adminService.UnBlockUser(id);
+            this.Flash(Toastr.SUCCESS, "Success", "User Unblocked successfully");
+            return RedirectToAction("GetAllBlockedUsers");
         }
 
         public ActionResult GetAllBlockedUsers()

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using RedWillow.MvcToastrFlash
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -8,7 +9,9 @@
     <link href="~/Content/Main.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
     <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/toastr.min.css" rel="stylesheet" />
+
 </head>
 <body>
     <div>
@@ -35,7 +38,14 @@
         </header>
 
 
-        @RenderBody()
+                @RenderBody()
     </div>
+    @Scripts.Render("~/bundles/jquery")
+
+
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    @Html.ToastrNotifications()
+
 </body>
 </html>

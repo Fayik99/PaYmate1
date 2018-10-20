@@ -15,6 +15,7 @@
                 <th>User Name</th>
                 <th>Phone Number</th>
                 <th>Status</th>
+                <th></th>
 
             </tr>
             @foreach (var admin in Model)
@@ -25,6 +26,7 @@
                     <td>@admin.UserName</td>
                     <td>@admin.PhoneNumber</td>
                     <td>@admin.BlockStatus</td>
+                    <td>@Html.ActionLink("Unblock","UnBlockUser","Admin", new { id=admin.UserId},new { @class="btn btn-danger"})</td>
                 </tr>
 
             }
