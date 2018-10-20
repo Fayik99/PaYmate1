@@ -1,0 +1,27 @@
+﻿@using RedWillow.MvcToastrFlash
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    
+</head>
+<body>
+    
+        @RenderBody()
+    
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/toastr.js"></script>
+    @Html.ToastrNotifications()
+</body>
+</html>
+

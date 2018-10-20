@@ -1,0 +1,26 @@
+﻿@model PaYmate1.Models.BankViewModel
+
+@{
+    ViewBag.Title = "GetBankBalance";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+
+<link href="~/Content/ViewBank.css" rel="stylesheet" />
+<link href="~/Content/Main.css" rel="stylesheet" />
+<body>
+    <h2>Bank Balance</h2>
+
+    <header>
+        <section class="hero">
+           <div class="innerWrapper">
+            <div class="view">
+                <label>Customer ID</label> :  @Model.UserName <br />
+                <label>Account Number</label> :  @Model.AcoountNo  <br />
+                <label>Account Balance</label> :   @Model.AccountBalance  <br />
+
+                </div>
+            </div>
+        </section>
+    </header>
+</body>

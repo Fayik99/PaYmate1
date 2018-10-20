@@ -1,0 +1,38 @@
+﻿@model List<PaYmate1.Models.CustomerViewModel>
+@{
+    ViewBag.Title = "SearchUsers";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<link href="~/Content/log.css" rel="stylesheet" />
+<div class="transaction-log">
+    <div class="GetUsers">
+        <table>
+
+            <tr>
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>NIC</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+
+            </tr>
+            @foreach (var admin in Model)
+            {
+                <tr>
+
+                    <td>@admin.CustomerId</td>
+                    <td>@admin.UserName</td>
+                    <td>@admin.NIC</td>
+                    <td>@admin.PhoneNumber</td>
+                    <td>@admin.Address</td>
+                </tr>
+
+            }
+
+        </table>
+
+    </div>
+    </div>
+

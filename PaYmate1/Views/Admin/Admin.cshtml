@@ -1,0 +1,27 @@
+﻿@model PaYmate1.Models.CustomerViewModel
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<link href="~/Content/FundTransfer.css" rel="stylesheet" />
+<link href="~/Content/Main.css" rel="stylesheet" />
+<body>
+    <h2>Admin</h2>
+    @using (Html.BeginForm("SearchUsers", "Admin", FormMethod.Post))
+    {
+        <header>
+            <section class="hero">
+                <div class="innerWrapper">
+                    <div class="view">
+                        <label>Enter Customer Id</label>
+
+                        @Html.TextBoxFor(x => x.CustomerId)
+                        <button class="button">Search</button>
+
+                    </div>
+                </div>
+            </section>
+        </header>
+    }
+</body>
+

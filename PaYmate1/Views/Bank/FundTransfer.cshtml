@@ -1,0 +1,37 @@
+﻿@model PaYmate1.Models.BankViewModel
+@{
+    ViewBag.Title = "FundTransfer";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+<link href="~/Content/FundTransfer.css" rel="stylesheet" />
+<link href="~/Content/Main.css" rel="stylesheet" />
+<body>
+    <h2>Fund Transfer</h2>
+
+
+    @using (Html.BeginForm("FundTransfer", "Bank", FormMethod.Post))
+    {
+        <header>
+            <section class="hero">
+                <div class="innerWrapper">
+                    <div class="view">
+                        <label> Transfer to account number </label> <br />
+                        @Html.TextBoxFor(x => x.AcoountNo)   <br />
+
+                        <label> Amount </label> <br />
+
+                        @Html.TextBoxFor(x => x.TransferAmount) <br />
+
+
+                   
+                        <button class="button">Transfer</button>
+
+                       
+                    </div>
+                </div>
+            </section>
+        </header>
+    }
+
+</body>
+

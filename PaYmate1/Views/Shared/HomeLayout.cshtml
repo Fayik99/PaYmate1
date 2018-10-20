@@ -1,0 +1,48 @@
+﻿@using RedWillow.MvcToastrFlash
+
+@{
+    ViewBag.Title = "HomeLayout";
+    var loggedInAs = (string)Session["LoggedInAs"];
+
+}
+
+<link href="~/Content/Main.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+<link href="~/Content/Site.css" rel="stylesheet" />
+<link href="~/Content/toastr.min.css" rel="stylesheet" />
+<header>
+    <div class="navWrapper" id="home">
+        <div class=" clearfix">
+            <h2 class="companyName"><a href="/home/Index"><b>PayMate</b></a></h2>
+            <nav class="mainNav clearfix">
+                <ul>
+                    <li><a href="/home/TransactionLog">TRANSACTION LOG</a></li>
+                    <li><a href="/home/FundTransferReport" class="smoothScroll">FUND TRANSFER REPORT</a></li>
+                    <li><a href="/home/About" class="smoothScroll">ABOUT</a></li>
+                    <li><a href="/home/Contact" class="smoothScroll">MY POSITION</a></li>
+                    <li><a href="/Security/login" class="smoothScroll">LOG OUT</a></li>
+                    <li><a href="#0">Logged in as @loggedInAs</a></li>
+                </ul>
+            </nav>
+        </div><!-- end .innerWrapper -->
+    </div><!-- end of .navWrapper -->
+
+    <section class="hero">
+        <div class="innerWrapper">
+
+        </div><!-- end .innerWrapper (.hero) -->
+    </section>
+</header>
+<body>
+
+
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/toastr.js"></script>
+    @Html.ToastrNotifications()
+</body>

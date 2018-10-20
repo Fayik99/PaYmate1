@@ -1,0 +1,34 @@
+﻿@model PaYmate1.Models.PhoneViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+
+
+
+<link href="~/Content/ViewBank.css" rel="stylesheet" />
+<link href="~/Content/Main.css" rel="stylesheet" />
+<body>
+    <h2>Phone Bill</h2>
+    @using (Html.BeginForm("PhoneBillPay", "Phone", FormMethod.Post))
+    {
+        @*@Html.HiddenFor(x=>x.BillAmount)*@
+        <header>
+            <section class="hero">
+                <div class="innerWrapper">
+                    <div class="view">
+                        <label>Your Phone Number Is</label>  :  @Model.PhoneNumber <br />
+                       @* <label>Bill Amount Is</label>  :  @Model.BillAmount  <br />*@
+                        <label>Enter Payment Amount</label> :   <br />
+                        @Html.TextBoxFor(x => x.PayingAmount)   <br />
+
+                        <button class="button">Pay</button>
+                        
+
+                    </div>
+                </div>
+            </section>
+        </header>
+    }
+    </body>

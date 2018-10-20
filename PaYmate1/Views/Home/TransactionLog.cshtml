@@ -1,0 +1,31 @@
+﻿@model List<PaYmate1.Models.TransactionLogViewModel>
+    @{
+        ViewBag.Title = "TransactionLog";
+        Layout = "~/Views/Shared/HomeLayout.cshtml";
+    }
+
+    <link href="~/Content/log.css" rel="stylesheet" />
+    <div class="transaction-log">
+        <h2>Transaction Log</h2>
+        <table>
+
+            <tr>
+                <th>Transaction Type</th>
+                <th>Amount</th>
+                <th>Date</th>
+
+            </tr>
+            @foreach (var log in Model)
+            {
+                <tr>
+
+                    <td>@log.TransactionType</td>
+                    <td>@log.TransactionAmount</td>
+                    <td>@log.Date</td>
+                </tr>
+
+            }
+           
+        </table>
+
+    </div>

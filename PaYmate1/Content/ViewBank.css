@@ -1,0 +1,25 @@
+﻿body{
+
+
+    margin:0;
+}
+
+
+.view{
+
+
+    text-decoration:none;
+    text-align:center;
+	padding: 25px 20px;
+	color: #010960;
+	margin: 150px;
+	display: inline-block;
+	text-transform: uppercase;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 30px;
+    font-weight:bold;
+ 
+
+
+
+}

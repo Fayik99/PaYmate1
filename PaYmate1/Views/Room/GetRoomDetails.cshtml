@@ -1,0 +1,49 @@
+﻿@model List<PaYmate1.Models.RoomViewModel>
+@{
+    ViewBag.Title = "GetRoomDetails";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<h2>The KingsBury</h2>
+
+<input type="submit" value="View Reservations" />  <br />  <br />
+
+<label>New Reservation</label> <br />
+
+<form action="/Room/ReserveRoom" method="post">
+
+    <div class="date-picker">
+        <input type="date" name="reservationDate" value=" " />
+        <input type="number" name="roomNumber" min="1" value="" />
+        <input type="submit" value="Reserve" class="btn btn-primary" />
+    </div>
+</form>
+
+<link href="~/Content/log.css" rel="stylesheet" />
+<div class="transaction-log">
+    <table>
+        <tr>
+            <th>Room Number</th>
+            <th>Price</th>
+            <th>Room Type</th>
+        </tr>
+        @foreach (var room in Model)
+            {
+            <tr>
+                <td>@room.RoomNumber</td>
+                <td>@room.Price</td>
+                <td>@room.RoomType</td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+

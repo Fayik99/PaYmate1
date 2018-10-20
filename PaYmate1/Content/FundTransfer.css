@@ -1,0 +1,40 @@
+﻿body{
+
+
+    margin:0;
+}
+
+
+.view{
+
+
+    text-decoration:none;
+    text-align:center;
+	padding: 15% 20px;
+	color: #010960;
+	margin: 0;
+	display: inline-block;
+	text-transform: uppercase;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 30px;
+    font-weight:bold;
+
+
+
+}
+.button{
+    background-color: white;
+    color: #010960;
+    border: 2px solid #000;
+    padding: 10px 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    margin: 20px 5px;
+    cursor: pointer;
+    border-radius: 30px;
+    
+
+
+}
+

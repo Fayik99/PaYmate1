@@ -1,0 +1,36 @@
+﻿@model List<PaYmate1.Models.AdminViewModel>
+@{
+    ViewBag.Title = "GetAllBlockedUsers";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>All Blocked Users</h2>
+<link href="~/Content/log.css" rel="stylesheet" />
+<div class="transaction-log">
+    <div class="GetUsers">
+        <table>
+
+            <tr>
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>Phone Number</th>
+                <th>Status</th>
+
+            </tr>
+            @foreach (var admin in Model)
+            {
+                <tr>
+
+                    <td>@admin.UserId</td>
+                    <td>@admin.UserName</td>
+                    <td>@admin.PhoneNumber</td>
+                    <td>@admin.BlockStatus</td>
+                </tr>
+
+            }
+
+        </table>
+
+    </div>
+</div>
+

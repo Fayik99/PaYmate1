@@ -1,0 +1,26 @@
+﻿.transaction-log table{
+    width:100%;
+    text-align: center;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+}
+.transaction-log table tbody tr th{
+    border-bottom:1px solid #ccc;
+    background: #bf845a;
+    color:#fff;
+    padding:10px 0;
+}
+.transaction-log table tbody tr:nth-child(even){
+    background: #5abfbf;
+    color:#fff;
+}
+
+.transaction-log .date-picker input[type=date]{
+    margin: 25px;
+    padding: 10px;
+    font-size: 15px;
+
+}
+
+
+

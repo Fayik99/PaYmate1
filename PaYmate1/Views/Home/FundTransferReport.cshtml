@@ -1,0 +1,44 @@
+﻿@model List<PaYmate1.Models.FundTransferReport>
+@{
+    ViewBag.Title = "FundTransferReport";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+
+<link href="~/Content/log.css" rel="stylesheet" />
+<div class="transaction-log">
+    <h2>FundTransferReport</h2>
+
+    <form action="/Home/FundTransferReport" method="post">
+        <div class="date-picker">
+            <input type="date" name="FromDate" value=" " />
+            <input type="date" name="ToDate" value=" " />
+            <input type="submit" value="Generate" class="btn btn-primary"/>
+        </div>
+    </form>
+    <table>
+
+        <tr>
+            <th>User Id</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+
+        </tr>
+        @if (Model != null)
+        {
+            foreach (var fund in Model)
+            {
+                <tr>
+
+                    <td>@fund.CustomerId</td>
+                    <td>@fund.TransactionType</td>
+                    <td>@fund.TransactionAmount</td>
+                    <td>@fund.Date</td>
+                </tr>
+
+            }
+        }
+    </table>
+
+</div>
