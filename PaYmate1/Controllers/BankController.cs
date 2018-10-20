@@ -15,7 +15,7 @@ namespace PaYmate1.Controllers
         private readonly CustomerService _customerService;
 
         // GET: Bank
-        public BankController(BankService bankService,CustomerService customerService)
+        public BankController(BankService bankService, CustomerService customerService)
         {
 
             _bankService = bankService;
@@ -48,25 +48,25 @@ namespace PaYmate1.Controllers
                 this.Flash(Toastr.ERROR, "Failed", "Enter a valid amount");
                 return RedirectToAction("FundTransfer");
 
-                
+
             }
             var customerDetail = (CustomerViewModel)Session["CustomerDetail"];
-           // var transactionStatus = _bankService.FundTransfer(customerDetail, bankViewModel);
-            
-           // if(transactionStatus==1)
-           // {
-           //     //  this.Flash(Toastr.SUCCESS,"Success","Fund Transfer Successful");
-               return Redirect(customerDetail.BankType);
-           // }
-           //else if (transactionStatus == 2)
-           // {
-           //     this.Flash(Toastr.ERROR, "Failed", "Invalid Account Number");
-           // }
-           // else
-           // {
-           //     this.Flash(Toastr.ERROR, "Failed", "Insufficient Balance");
-           // }
-           // return View();
+            var transactionStatus = _bankService.FundTransfer(customerDetail, bankViewModel);
+
+            // if(transactionStatus==1)
+            // {
+            //     //  this.Flash(Toastr.SUCCESS,"Success","Fund Transfer Successful");
+            return Redirect(customerDetail.BankType);
+            // }
+            //else if (transactionStatus == 2)
+            // {
+            //     this.Flash(Toastr.ERROR, "Failed", "Invalid Account Number");
+            // }
+            // else
+            // {
+            //     this.Flash(Toastr.ERROR, "Failed", "Insufficient Balance");
+            // }
+            // return View();
         }
     }
 }
