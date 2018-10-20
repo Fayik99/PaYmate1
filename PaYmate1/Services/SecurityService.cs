@@ -31,7 +31,8 @@ namespace PaYmate1.Services
                     UserName = x.UserName,
                     CustomerId = x.CustomerId,
                     BankType=x.BankType,
-                    UserRole=x.UserRole
+                    UserRole=x.UserRole,
+                    BlockStatus=x.BlockStatus
 
                 }).FirstOrDefault();
             return result;

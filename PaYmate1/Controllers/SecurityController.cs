@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace PaYmate1.Controllers
 {
@@ -34,11 +35,11 @@ namespace PaYmate1.Controllers
                 // return RedirectToAction("Login", "Security");
                 return View(new LoginViewModel());
             }
-
+            loginViewModel.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(loginViewModel.Password, "SHA1");
             var loginresult = _securityService.AuthenticateUser(loginViewModel);
 
 
-            if (loginresult != null && loginresult.UserRole == 2)
+            if (loginresult != null && loginresult.UserRole == 2 && loginresult.BlockStatus == 1)
 
             {
                 Session.Timeout = 200000;
@@ -50,6 +51,14 @@ namespace PaYmate1.Controllers
             {
 
                 return RedirectToAction("Admin", "Admin");
+            }
+
+            else if (loginresult != null && loginresult.UserRole == 2 && loginresult.BlockStatus == 3)
+            {
+
+                this.Flash(Toastr.ERROR, "Failed", "This User is Blocked");
+                return RedirectToAction("Login", "Security");
+
             }
             else
             {
@@ -70,18 +79,16 @@ namespace PaYmate1.Controllers
         [HttpPost]
         public ActionResult Register(RegisterViewmodel registerViewmodel)
         {
-            if(!string.IsNullOrEmpty(registerViewmodel.PhoneNumber))
-            if (registerViewmodel.PhoneNumber.Length != 10  ||registerViewmodel.PhoneNumber.Any(x => !char.IsLetter(x)))
-            {
-                this.Flash(Toastr.ERROR, "Failed", "Enter numbers only for phone");
-                return RedirectToAction("Login", registerViewmodel);
+            if (!string.IsNullOrEmpty(registerViewmodel.PhoneNumber))
+                if (registerViewmodel.PhoneNumber.Length != 10 || registerViewmodel.PhoneNumber.Any(x => char.IsLetter(x)))
+                {
+                    this.Flash(Toastr.ERROR, "Failed", "Enter numbers only for phone");
+                    return RedirectToAction("Login", registerViewmodel);
+                }
 
-
-
-
-            }
             if (ModelState.IsValid)
             {
+                registerViewmodel.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(registerViewmodel.Password, "SHA1");
                 _securityService.RegisterUser(registerViewmodel);
                 this.Flash(Toastr.SUCCESS, "Success", "Registered Successfully");
                 return RedirectToAction("Login");
