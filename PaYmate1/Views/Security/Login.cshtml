@@ -6,37 +6,40 @@
 
 <div class="login-page">
     <div class="form">
-          <img src="~/Pics/b.gif" height="180" width="180"/> 
-       
-@using (Html.BeginForm("Register", "Security", FormMethod.Post, new { @class = "register-form" })) {
-                @Html.TextBox("UserName", null, new { placeholder = "username" })
-                @Html.Password("Password", null, new { placeholder = "password" })
-                @Html.TextBox("NIC", null, new { placeholder = "NIC" })
-                @Html.TextBox("PhoneNumber", null, new { placeholder = "PhoneNumber" })
-                @Html.TextBox("Address", null, new { placeholder = "Address" })
-               
-     <label>Commercial</label>  @Html.RadioButton("BankType", "https://www.commercialbk.com/online/2/2/22001.aspx")    
-    <label>HNB</label>  @Html.RadioButton("BankType", "https://ebanking.hnb.lk/corp/AuthenticationController?__START_TRAN_FLAG__=Y&FORMSGROUP_ID__=AuthenticationFG&__EVENT_ID__=LOAD&FG_BUTTONS__=LOAD&ACTION.LOAD=Y&AuthenticationFG.LOGIN_FLAG=1&BANK_ID=7083&LANGUAGE_ID=001")
-    <label>Sampath</label>  @Html.RadioButton("BankType", "https://www.sampath.lk/en/personal/electronic-banking")
-    <label>BOC</label>  @Html.RadioButton("BankType", "https://www.boc.web.lk/loginPage#")
-    <label>Dialog</label>  @Html.RadioButton("PhoneType", "https://www.dialog.lk/browse/reloadPayBillOnline.jsp")
-    <label>Mobital</label>  @Html.RadioButton("PhoneType", "http://www.mobitel.lk/billing")
-    <label>Airtel</label>  @Html.RadioButton("PhoneType", "http://www.airtel.lk/customer-care/bill-payment-&-info.html")
-    <label>Etisalat</label>  @Html.RadioButton("PhoneType", "http://www.etisalat.lk/for-you/support/pay-online/")
+        <img src="~/Pics/b.gif" height="180" width="180" />
+
+        @using (Html.BeginForm("Register", "Security", FormMethod.Post, new { @class = "register-form" }))
+        {
+            @Html.TextBox("UserName", null, new { placeholder = "username" })
+            @Html.Password("Password", null, new { placeholder = "password" })
+            @Html.TextBox("NIC", null, new { placeholder = "NIC" })
+            @Html.TextBox("PhoneNumber", null, new { placeholder = "PhoneNumber" })
+            @Html.TextBox("Address", null, new { placeholder = "Address" })
+            <div class="pull-left" style="width:50%; margin: 10px 0">
+                <label>Commercial</label>  @Html.RadioButton("BankType", "https://www.commercialbk.com/online/2/2/22001.aspx")
+                <label>HNB</label>  @Html.RadioButton("BankType", "https://ebanking.hnb.lk/corp/AuthenticationController?__START_TRAN_FLAG__=Y&FORMSGROUP_ID__=AuthenticationFG&__EVENT_ID__=LOAD&FG_BUTTONS__=LOAD&ACTION.LOAD=Y&AuthenticationFG.LOGIN_FLAG=1&BANK_ID=7083&LANGUAGE_ID=001")
+                <label>Sampath</label>  @Html.RadioButton("BankType", "https://www.sampath.lk/en/personal/electronic-banking")
+                <label>BOC</label>  @Html.RadioButton("BankType", "https://www.boc.web.lk/loginPage#")
+            </div>
+            <div class="pull-right" style="width:50%; margin: 10px 0">
+                <label>Dialog</label>  @Html.RadioButton("PhoneType", "https://www.dialog.lk/browse/reloadPayBillOnline.jsp")
+                <label>Mobital</label>  @Html.RadioButton("PhoneType", "http://www.mobitel.lk/billing")
+                <label>Airtel</label>  @Html.RadioButton("PhoneType", "http://www.airtel.lk/customer-care/bill-payment-&-info.html")
+                <label>Etisalat</label>  @Html.RadioButton("PhoneType", "http://www.etisalat.lk/for-you/support/pay-online/")  
+            </div>
                 <button>Create</button>
                 <p class="message">Already registered? <a href="#">Sign In</a></p>
-}
+        }
 
         @using (Html.BeginForm("Login", "Security", FormMethod.Post, new { @class = "login-form" }))
-            {
+        {
             @Html.TextBoxFor(x => x.Username, new { placeholder = "username" })
             @Html.PasswordFor(x => x.Password, new { placeholder = "password" })
             <button>login</button>
-            <p class="message">Not registered? <a href="#">Create an account</a></p>
+                    <p class="message">Not registered? <a href="#">Create an account</a></p>
         }
 
     </div>
 
 </div>
-  
 
